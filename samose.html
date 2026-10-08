@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shiv Chole Samose | Order Online</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #d9480f;
+      --primary-dark: #b83204;
+      --secondary: #f08c00;
+      --accent-pepsi: #004b93;
+      --accent-pepsi-dark: #002e5b;
+      --bg: #fdfaf6;
+      --surface: #ffffff;
+      --text-main: #1f2937;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --success: #16a34a;
+      --whatsapp: #25d366;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.12);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding-bottom: 90px;
+    }
+
+    /* Navbar Header */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand-sub {
+      font-size: 0.8rem;
+      opacity: 0.92;
+    }
+
+    /* Nav Cart Trigger Button */
+    .cart-trigger-btn {
+      background: #ffffff;
+      color: var(--primary-dark);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.15s ease, background 0.2s;
+      position: relative;
+    }
+
+    .cart-trigger-btn:hover {
+      transform: scale(1.04);
+      background: #fff8f0;
+    }
+
+    .cart-badge {
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      width: 22px;
+      height: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* Promo Banner */
+    .hero-banner {
+      background: #fff4e6;
+      border-left: 5px solid var(--secondary);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin-bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: #92400e;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Menu Grid */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .menu-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 16px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-icon {
+      font-size: 2.2rem;
+      width: 52px;
+      height: 52px;
+      background: #fff2e8;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .card-icon.pepsi-icon {
+      background: #e6f0fa;
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .card-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      min-height: 38px;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px dashed var(--border);
+      padding-top: 10px;
+    }
+
+    .card-price {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+
+    /* Add To Cart Button */
+    .btn-cart-action {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-cart-action:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .btn-cart-action.pepsi-theme {
+      background-color: var(--accent-pepsi);
+    }
+
+    .btn-cart-action.pepsi-theme:hover {
+      background-color: var(--accent-pepsi-dark);
+    }
+
+    .card-qty-control {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #f3f4f6;
+      padding: 3px 6px;
+      border-radius: 8px;
+    }
+
+    .qty-btn {
+      width: 26px;
+      height: 26px;
+      border: none;
+      background: white;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .qty-val {
+      font-weight: 700;
+      min-width: 18px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* Slide-out Cart Drawer */
+    .cart-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 200;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+    }
+
+    .cart-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 100%;
+      max-width: 400px;
+      height: 100%;
+      background: #ffffff;
+      z-index: 201;
+      box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cart-drawer.active {
+      right: 0;
+    }
+
+    .drawer-header {
+      padding: 18px 20px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .drawer-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .drawer-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 20px;
+    }
+
+    .cart-empty-state {
+      text-align: center;
+      padding: 40px 10px;
+      color: var(--text-muted);
+    }
+
+    .cart-item-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #f1f3f5;
+    }
+
+    .cart-item-info {
+      flex: 1;
+      padding-right: 10px;
+    }
+
+    .cart-item-name {
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    .cart-item-rate {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .cart-item-subtotal {
+      font-weight: 700;
+      font-size: 0.95rem;
+      min-width: 50px;
+      text-align: right;
+    }
+
+    /* Drawer Footer & Checkout Inputs */
+    .drawer-footer {
+      padding: 16px 20px;
+      border-top: 1px solid var(--border);
+      background: #ffffff;
+    }
+
+    .bill-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+    }
+
+    .bill-total {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+      margin-bottom: 12px;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.88rem;
+      margin-bottom: 10px;
+      font-family: inherit;
+    }
+
+    .btn-whatsapp-order {
+      width: 100%;
+      background: var(--whatsapp);
+      color: white;
+      border: none;
+      padding: 13px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(37,211,102,0.35);
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-whatsapp-order:hover {
+      background: #1eb956;
+      transform: scale(1.01);
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #1f2937;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      z-index: 300;
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Header -->
+  <header>
+    <div class="brand-wrap">
+      <div class="brand-title">🥟 Shiv Chole Samose</div>
+      <div class="brand-sub">Hot Crispy Snacks & Cold Pepsi</div>
+    </div>
+    <button class="cart-trigger-btn" onclick="toggleCartDrawer(true)">
+      <span>🛒 Cart</span>
+      <span class="cart-badge" id="navBadge">0</span>
+    </button>
+  </header>
+
+  <div class="container">
+    <!-- Promo Banner -->
+    <div class="hero-banner">
+      <span>🔥 <strong>Daily Special:</strong> 2 Double Chole Samose + 1 Pepsi at ₹85!</span>
+      <span>⭐ 4.9 Rating</span>
+    </div>
+
+    <!-- Menu Items List -->
+    <h2 class="section-title">🍽️ Menu & Add to Cart</h2>
+    <div class="menu-grid" id="menuContainer"></div>
+  </div>
+
+  <!-- Slide-out Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCartDrawer(false)"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <div class="drawer-title">🛒 Your Selected Cart</div>
+      <button class="drawer-close" onclick="toggleCartDrawer(false)">&times;</button>
+    </div>
+
+    <div class="drawer-body" id="cartItemList">
+      <!-- Items dynamically injected here -->
+    </div>
+
+    <div class="drawer-footer">
+      <div class="bill-row">
+        <span>Item Total:</span>
+        <span id="drawerSubtotal">₹0</span>
+      </div>
+      <div class="bill-row">
+        <span>Packing & Delivery:</span>
+        <span style="color: var(--success); font-weight: 600;">FREE</span>
+      </div>
+      <div class="bill-row bill-total">
+        <span>To Pay:</span>
+        <span id="drawerTotal">₹0</span>
+      </div>
+
+      <!-- Quick Delivery Inputs -->
+      <input type="text" id="custName" class="input-field" placeholder="Your Name *" required />
+      <select id="orderMode" class="input-field">
+        <option value="Takeaway / Self-Pickup">Takeaway / Counter Pickup</option>
+        <option value="Home Delivery">Local Delivery (Bareilly)</option>
+      </select>
+      <input type="text" id="custAddress" class="input-field" placeholder="Delivery Address / Landmark" />
+      <input type="text" id="custNote" class="input-field" placeholder="Note (e.g. extra spicy chutney)" />
+
+      <button class="btn-whatsapp-order" onclick="submitWhatsAppOrder()">
+        <span>💬 Send Order via WhatsApp</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast Element -->
+  <div class="toast" id="toastMessage">Item added to cart!</div>
+
+  <script>
+    // 1. CONFIGURATION: Set your WhatsApp phone number with country code (e.g. 91 for India)
+    const SHOP_WHATSAPP_PHONE = "9927927406";
+
+    // 2. MENU DATA
+    const menuItems = [
+      {
+        id: "samosa_single",
+        name: "Single Chole Samosa",
+        icon: "🥟",
+        desc: "Crispy samosa crushed and topped with spicy pindi chole & sweet-tangy chutney.",
+        price: 25,
+        type: "food"
+      },
+      {
+        id: "samosa_double",
+        name: "Special Double Chole Samosa",
+        icon: "🥟🥟",
+        desc: "2 fresh samosas soaked in hot spicy chole, sliced onions, and mint chutney.",
+        price: 45,
+        type: "food"
+      },
+      {
+        id: "samosa_classic",
+        name: "Classic Samosa (Dry)",
+        icon: "🥟",
+        desc: "Traditional spiced potato & peas stuffing with red tamarind and green chutney.",
+        price: 15,
+        type: "food"
+      },
+      {
+        id: "pepsi_bottle",
+        name: "Chilled Pepsi (250ml)",
+        icon: "🥤",
+        desc: "Ice-cold sparkling refreshing Pepsi. The perfect spicy food companion.",
+        price: 20,
+        type: "drink"
+      },
+      {
+        id: "pepsi_can",
+        name: "Pepsi Can (300ml)",
+        icon: "🥫",
+        desc: "Chilled canned Pepsi with max fizz to refresh your palate.",
+        price: 35,
+        type: "drink"
+      },
+      {
+        id: "combo_pack",
+        name: "Mega Combo (2 Chole Samosa + Pepsi)",
+        icon: "🔥",
+        desc: "Double Chole Samosa plate paired with 1 chilled 250ml Pepsi bottle.",
+        price: 65,
+        type: "combo"
+      }
+    ];
+
+    // 3. CART STATE
+    const cart = {};
+
+    // 4. RENDER MENU
+    function renderMenu() {
+      const grid = document.getElementById("menuContainer");
+      grid.innerHTML = "";
+
+      menuItems.forEach((item) => {
+        const qty = cart[item.id] || 0;
+        const isPepsi = item.type === "drink";
+
+        const card = document.createElement("div");
+        card.className = "menu-card";
+        card.innerHTML = `
+          <div>
+            <div class="card-icon ${isPepsi ? 'pepsi-icon' : ''}">${item.icon}</div>
+            <div class="card-title">${item.name}</div>
+            <div class="card-desc">${item.desc}</div>
+          </div>
+          <div class="card-footer">
+            <div class="card-price">₹${item.price}</div>
+            <div id="action-box-${item.id}">
+              ${
+                qty === 0
+                  ? `<button class="btn-cart-action ${isPepsi ? 'pepsi-theme' : ''}" onclick="addToCart('${item.id}')">+ Add to Cart</button>`
+                  : `
+                    <div class="card-qty-control">
+                      <button class="qty-btn" onclick="changeQty('${item.id}', -1)">−</button>
+                      <span class="qty-val">${qty}</span>
+                      <button class="qty-btn" onclick="changeQty('${item.id}', 1)">+</button>
+                    </div>
+                  `
+              }
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // 5. CART OPERATIONS
+    function addToCart(id) {
+      cart[id] = 1;
+      triggerToast("Added to Cart!");
+      updateAllUI();
+    }
+
+    function changeQty(id, delta) {
+      if (!cart[id]) return;
+      cart[id] += delta;
+      if (cart[id] <= 0) {
+        delete cart[id];
+      }
+      updateAllUI();
+    }
+
+    function toggleCartDrawer(open) {
+      const drawer = document.getElementById("cartDrawer");
+      const overlay = document.getElementById("cartOverlay");
+      if (open) {
+        drawer.classList.add("active");
+        overlay.classList.add("active");
+      } else {
+        drawer.classList.remove("active");
+        overlay.classList.remove("active");
+      }
+    }
+
+    function triggerToast(text) {
+      const toast = document.getElementById("toastMessage");
+      toast.innerText = text;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2000);
+    }
+
+    // 6. SYNC UI
+    function updateAllUI() {
+      // Refresh Menu Buttons
+      menuItems.forEach((item) => {
+        const box = document.getElementById(`action-box-${item.id}`);
+        const qty = cart[item.id] || 0;
+        const isPepsi = item.type === "drink";
+
+        if (box) {
+          if (qty === 0) {
+            box.innerHTML = `<button class="btn-cart-action ${isPepsi ? 'pepsi-theme' : ''}" onclick="addToCart('${item.id}')">+ Add to Cart</button>`;
+          } else {
+            box.innerHTML = `
+              <div class="card-qty-control">
+                <button class="qty-btn" onclick="changeQty('${item.id}', -1)">−</button>
+                <span class="qty-val">${qty}</span>
+                <button class="qty-btn" onclick="changeQty('${item.id}', 1)">+</button>
+              </div>
+            `;
+          }
+        }
+      });
+
+      // Calculate totals
+      let totalItems = 0;
+      let totalAmount = 0;
+      const cartList = document.getElementById("cartItemList");
+      cartList.innerHTML = "";
+
+      const cartEntries = Object.entries(cart);
+
+      if (cartEntries.length === 0) {
+        cartList.innerHTML = `
+          <div class="cart-empty-state">
+            <div style="font-size: 2.5rem; margin-bottom: 8px;">🛒</div>
+            <p>Your cart is empty.</p>
+            <p style="font-size: 0.8rem;">Add some hot samosas and chilled Pepsi!</p>
+          </div>
+        `;
+      } else {
+        cartEntries.forEach(([id, qty]) => {
+          const item = menuItems.find((i) => i.id === id);
+          if (item) {
+            totalItems += qty;
+            const subtotal = item.price * qty;
+            totalAmount += subtotal;
+
+            const row = document.createElement("div");
+            row.className = "cart-item-row";
+            row.innerHTML = `
+              <div class="cart-item-info">
+                <div class="cart-item-name">${item.icon} ${item.name}</div>
+                <div class="cart-item-rate">₹${item.price} each</div>
+              </div>
+              <div class="card-qty-control" style="margin-right: 12px;">
+                <button class="qty-btn" onclick="changeQty('${item.id}', -1)">−</button>
+                <span class="qty-val">${qty}</span>
+                <button class="qty-btn" onclick="changeQty('${item.id}', 1)">+</button>
+              </div>
+              <div class="cart-item-subtotal">₹${subtotal}</div>
+            `;
+            cartList.appendChild(row);
+          }
+        });
+      }
+
+      // Update counters & totals
+      document.getElementById("navBadge").innerText = totalItems;
+      document.getElementById("drawerSubtotal").innerText = `₹${totalAmount}`;
+      document.getElementById("drawerTotal").innerText = `₹${totalAmount}`;
+    }
+
+    // 7. DISPATCH ORDER TO WHATSAPP
+    function submitWhatsAppOrder() {
+      const name = document.getElementById("custName").value.trim();
+      const mode = document.getElementById("orderMode").value;
+      const address = document.getElementById("custAddress").value.trim();
+      const note = document.getElementById("custNote").value.trim();
+
+      const itemsInCart = Object.keys(cart);
+      if (itemsInCart.length === 0) {
+        alert("Your cart is empty. Please add items first.");
+        return;
+      }
+
+      if (!name) {
+        alert("Please enter your name.");
+        document.getElementById("custName").focus();
+        return;
+      }
+
+      let message = `*🥟 NEW ORDER - SHIV CHOLE SAMOSE*\n`;
+      message += `--------------------------------\n`;
+      message += `👤 *Customer Name:* ${name}\n`;
+      message += `📦 *Order Type:* ${mode}\n`;
+      if (address) message += `📍 *Delivery Address:* ${address}\n`;
+      if (note) message += `📝 *Special Notes:* ${note}\n`;
+      message += `\n*Order Breakdown:*\n`;
+
+      let grandTotal = 0;
+      itemsInCart.forEach((id) => {
+        const item = menuItems.find((i) => i.id === id);
+        const qty = cart[id];
+        const subtotal = item.price * qty;
+        grandTotal += subtotal;
+        message += `• ${item.name} (${qty}x) = ₹${subtotal}\n`;
+      });
+
+      message += `--------------------------------\n`;
+      message += `💰 *Total Amount:* ₹${grandTotal}\n`;
+      message += `\nPlease confirm order preparation. Thank you!`;
+
+      const targetUrl = `https://wa.me/${SHOP_WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
+      window.open(targetUrl, "_blank");
+    }
+
+    // Run on startup
+    document.addEventListener("DOMContentLoaded", () => {
+      renderMenu();
+      updateAllUI();
+    });
+  
+  </script>
+</body>
+</html>
